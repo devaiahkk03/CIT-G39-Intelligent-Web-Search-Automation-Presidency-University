@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelligent Web Search Automation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Video Container -->
+  <div class="background-animation">
+    <video class="bg-video" autoplay muted loop>
+      <source src="background.mp4" type="video/mp4">
+      <!-- Replace with a valid video source -->
+    </video>
+  </div>
+
+  <!-- Page Wrapper -->
+  <div class="wrapper">
+    <!-- Side Menu -->
+    <nav class="side-menu">
+      <button class="menu-toggle" onclick="toggleSideMenu()">⮜</button>
+      <ul>
+        <li><a href="#">Source Code</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1>Intelligent Web Search Automation</h1>
+        <p>
+          Designed by Group CIT-G39 for 7th Sem Capstone Project <br>
+          Kushal S (20211CIT0109), Devaiah K K (20211CIT0100), Shiva S (20211CIT0181)<br>
+          Under the supervision of Ms. Amreen Khanum D<br>
+          SOCSE&IS, PRESIDENCY UNIVERSITY
+        </p>
+      </div>
+      <div class="header-right">
+        <img src="team_photo.jpg" alt="Dark Mode | Light Mode">
+        <div class="theme-switcher">
+          <label class="switch">
+            <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="content-split">
+        <!-- Input Form -->
+        <div class="input-section">
+          <form id="searchForm" action="/search" method="post" class="search-form">
+            <textarea 
+              id="prompt" 
+              name="prompt" 
+              placeholder="Ask me anything..." 
+              required></textarea>
+            <button type="submit">Search</button>
+          </form>
+          <div class="file-upload">
+            <input type="file" id="fileInput" onchange="displayFileInfo()">
+            <div id="fileInfo"></div>
+          </div>
+        </div>
+        <div id="results" class="output-box">
+          <p>Results will be displayed here...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2024 CIT-G39 Presidency University</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

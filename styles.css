@@ -1,0 +1,366 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color, #0d1117);
+  color: var(--text-color, #c9d1d9);
+  line-height: 1.6;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 200vh; /* Double the height */
+  padding-left: 210px; /* Offset for side menu */
+}
+
+/* Background Video Container */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Keep video behind content */
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background: linear-gradient(to right, rgb(0, 109, 128) 40%, rgba(0, 109, 128, 0.7) 90%);
+  border-right: 2px solid var(--border-color, #21262d);
+  transition: width 0.3s;
+}
+
+.side-menu.collapsed {
+  width: 50px;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.side-menu li {
+  margin: 10px 0;
+}
+
+.side-menu a {
+  color: var(--link-color, #87CEEB); /* Sky blue */
+  text-decoration: none;
+  text-shadow: 1px 1px 2px black; /* Black outline */
+}
+
+.side-menu.collapsed ul {
+  display: none;
+}
+
+.collapsed-menu-text {
+  display: none;
+  color: var(--link-color, #87CEEB); /* Sky blue */
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 1px 1px 2px black; /* Black outline */
+}
+
+.side-menu.collapsed .collapsed-menu-text {
+  display: block;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--link-color, #87CEEB); /* Sky blue */
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.side-menu.collapsed .menu-toggle {
+  position: absolute;
+  right: -25px;
+  top: 10px;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--header-bg, #161b22);
+  border-bottom: 2px solid var(--border-color, #21262d);
+}
+
+.header-left {
+  width: 70%;
+}
+
+.header-right {
+  width: 30%;
+  text-align: center;
+}
+
+.header-right img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--link-color, #87CEEB); /* Sky blue */
+}
+
+.header p {
+  font-size: 1rem;
+  color: var(--text-color-secondary, #8b949e);
+}
+
+/* Input Section */
+.input-section {
+  padding: 20px;
+  text-align: center;
+  width: 50%; /* Make input section 50% smaller */
+  margin: 0 auto; /* Center the input section */
+}
+
+.input-section textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 2px solid var(--border-color, #30363d);
+  border-radius: 5px;
+  background: var(--input-bg, #161b22);
+  color: var(--text-color, #c9d1d9);
+  resize: none;
+}
+
+.input-section button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: var(--button-bg, #87CEEB); /* Sky blue */
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.input-section button:hover {
+  background: var(--button-hover-bg, #0056b3); /* Darker blue */
+}
+
+/* File Upload */
+.file-upload {
+  margin-top: 20px;
+}
+
+#fileInput {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#fileInfo {
+  color: var(--text-color, #c9d1d9);
+}
+
+/* Output Box */
+.output-box {
+  padding: 20px;
+  border: 2px solid var(--border-color, #30363d);
+  border-radius: 5px;
+  background: var(--input-bg, #161b22);
+  color: var(--text-color, #c9d1d9);
+  margin-top: 20px;
+  width: 80%; /* Reduce the width */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.output-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.output-box p {
+  margin-bottom: 20px;
+}
+
+/* Question */
+.question {
+  font-size: 2.5rem; /* Increase font size */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Floating Search Query */
+.floating-query {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--input-bg, #161b22);
+  color: var(--text-color, #c9d1d9);
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none; /* Initially hidden */
+}
+
+/* Footer */
+.footer {
+  background: var(--footer-bg, #161b22);
+  color: var(--text-color-secondary, #8b949e);
+  text-align: center;
+  padding: 10px;
+  margin-top: auto; /* Push footer to bottom */
+  transition: max-height 0.3s;
+  position: relative;
+}
+
+.footer.collapsed {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.footer .links a {
+  color: var(--link-color, #87CEEB); /* Sky blue */
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-toggle {
+  background: none;
+  border: none;
+  color: var(--link-color, #87CEEB); /* Sky blue */
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer.collapsed .footer-toggle {
+  transform: rotate(180deg) translateX(-50%);
+}
+
+.footer-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-switcher {
+  margin: 10px 0;
+}
+
+.theme-switcher button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background: var(--button-bg, #87CEEB); /* Sky blue */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.theme-switcher button:hover {
+  background: var(--button-hover-bg, #00adb3); /* Darker blue */
+}
+
+/* Light Mode */
+:root.light-mode {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --side-menu-bg: #f0f0f0;
+  --header-bg: #f0f0f0;
+  --input-bg: #ffffff;
+  --footer-bg: #f0f0f0;
+  --border-color: #cccccc;
+  --link-color: #00c3ff;
+  --text-color-secondary: #555555;
+  --button-bg: #00c8ff;
+  --button-hover-bg: #00adb3;
+}
+
+/* Dark Mode */
+:root.dark-mode {
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --side-menu-bg: #161b22;
+  --header-bg: #161b22;
+  --input-bg: #161b22;
+  --footer-bg: #161b22;
+  --border-color: #21262d;
+  --link-color: #87CEEB; /* Sky blue */
+  --text-color-secondary: #8b949e;
+  --button-bg: #87CEEB; /* Sky blue */
+  --button-hover-bg: #0056b3; /* Darker blue */
+}
+
+/* Theme Toggle Slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
